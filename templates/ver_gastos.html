@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ver Gastos</title>
+  </head>
+  <body>
+    <h1>Lista de Gastos</h1>
+
+    {% if mensaje %}
+    <p>{{ mensaje }}</p>
+    <!-- Mostrar mensaje de éxito -->
+    {% endif %}
+
+    <h2>Gastos Registrados:</h2>
+    <ul>
+      {% for gasto in gastos %}
+      <li>{{ gasto[1] }} - {{ gasto[2] }}</li>
+      <!-- Muestra la cantidad y descripción del gasto -->
+      {% endfor %}
+    </ul>
+
+    <a href="/">Volver a la página principal</a>
+  </body>
+</html>
