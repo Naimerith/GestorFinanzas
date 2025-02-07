@@ -4,8 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agregar Gasto</title>
-    <!-- Enlace a Bootstrap -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+     <!-- Enlace a Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Enlace a CSS personalizado -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -76,40 +88,53 @@
       }
     </style>
   <body>
+    <!-- Botón de regreso -->
+<a href="/" class="btn btn-outline-secondary position-absolute top-0 start-0 m-3">
+    <i class="bi bi-arrow-left"></i> Volver
+</a>
+
+
     <div class="container">
       <h1>Agregar Gasto</h1>
-      <form method="POST" class="gasto-form">
-        <label for="categoria">Categoría:</label>
-        <select name="categoria" id="categoria">
-          <option value="hogar">Hogar</option>
-          <option value="transporte">Transporte</option>
-          <option value="alimentacion">Alimentación</option>
-        </select>
+      <form method="POST" action="/agregar">
 
-        <label for="fecha">Fecha:</label>
-        <input type="date" name="fecha" id="fecha" required />
+ <div class="mb-3">
+    <label for="categoria" class="form-label">Categoría:</label>
+    <select class="form-select" id="categoria" name="categoria" required>
+      <option value="Alimentación">Alimentación</option>
+      <option value="Transporte">Transporte</option>
+      <option value="Hogar">Hogar</option>
+      <option value="Entretenimiento">Entretenimiento</option>
+    </select>
+  </div>
 
-        <label for="descripcion">Descripción:</label>
-        <input type="text" name="descripcion" id="descripcion" required />
+  <div class="mb-3">
+    <label for="fecha" class="form-label">Fecha:</label>
+    <input type="date" class="form-control" id="fecha" name="fecha" required />
+  </div>
+        <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripción:</label>
+    <input type="text" class="form-control" id="descripcion" name="descripcion" required />
+  </div>
+  <div class="mb-3">
+    <label for="cantidad" class="form-label">Cantidad:</label>
+    <input type="number" class="form-control" id="cantidad" name="cantidad" required />
+  </div>
 
-        <div class="cantidad-container">
-          <span>$</span>
-          <input
-            type="number"
-            name="cantidad"
-            id="cantidad"
-            step="0.01"
-            required
-          />
-        </div>
 
-        <button type="submit" class="btn-agregar">Agregar gasto +</button>
-      </form>
+  <button type="submit" class="btn btn-primary w-100">Agregar Gasto</button>
+</form>
 
-      <div class="total-gastado">
+
+      <!--div class="total-gastado">
         <p>Total gastado en el mes:</p>
         <span>$0.00</span>
-      </div>
+      </div-->
+      <div class="total-gastado">
+    <p>Total gastado en el mes:</p>
+    <span>${{ "%.2f"|format(total_gastado) }}</span>
+</div>
+
     </div>
   </body>
 </html>
