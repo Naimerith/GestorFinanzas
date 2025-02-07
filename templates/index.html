@@ -4,10 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestor de Finanzas Personales</title>
+
+    <!-- Enlace a Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Enlace a CSS personalizado -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
   </head>
-  <body>
-    <h1>Bienvenido al Gestor de Finanzas Personales</h1>
-    <p><a href="/agregar">Agregar nuevo gasto</a></p>
-    <p><a href="/ver_gastos">Ver gastos registrados</a></p>
+  <body class="bg-light">
+    <div class="container text-center mt-5">
+      <h1 class="mb-4 text-primary">
+        Bienvenido al Gestor de Finanzas Personales
+      </h1>
+
+      <p class="lead text-secondary">
+        Lleva un control eficiente de tus gastos y finanzas.
+      </p>
+
+      <div class="mt-4">
+        <a href="/agregar" class="btn btn-success btn-lg m-2"
+          >➕ Agregar nuevo gasto</a
+        >
+        <a href="/ver_gastos" class="btn btn-info btn-lg m-2"
+          >📊 Ver gastos registrados</a
+        >
+      </div>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
